@@ -11,7 +11,7 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 } 
 
-$sql = "SELECT invoices.id, customers.id, customers.name, customers.email, invoices.product_id, invoices.product_description, invoices.timestamp FROM invoices, >
+$sql = "SELECT invoices.id, customers.id, customers.name, customers.email, invoices.product_id, invoices.product_description, invoices.timestamp FROM invoices, customers WHERE customers.id = invoices.customer_id";
 $result = $conn->query($sql);
 echo "<table>";
 if ($result->num_rows > 0) {
